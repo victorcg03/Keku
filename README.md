@@ -1,43 +1,60 @@
-# Astro Starter Kit: Minimal
+# Keku Web
 
-```sh
-npm create astro@latest -- --template minimal
+Sitio web de Keku Cervecería construido con Astro y Tailwind CSS.
+
+## Características
+
+- Astro v5 + Tailwind CSS v4
+- i18n simple (ES/EN)
+- Páginas: Inicio, Carta (ES), Menu (EN), Contacto (ES), Contact (EN)
+- Carta poblada desde JSON curado (script de sincronización)
+- PDFs descargables (Carta & Alérgenos, Menús especiales)
+- Galería local tipo Instagram y mapa incrustado
+- Layout tipo masonry estable (CSS columns)
+
+## Estructura
+
+- `src/layouts` – Layout base
+- `src/pages` – Rutas Astro
+- `src/data/menu.ts` – Datos de la carta (ES/EN)
+- `public/` – Imágenes, PDFs, JSON curado
+- `scripts/` – Utilidades para extraer/sincronizar carta
+
+## Scripts
+
+- `npm run dev` – Arranca el entorno de desarrollo
+- `npm run build` – Genera la build de producción en `dist/`
+- `npm run preview` – Previsualiza la build
+- `npm run extract:menu` – Genera `src/data/menu.generated.json` a partir del PDF (heurístico)
+- `npm run sync:menu` – Sustituye `menuES` en `src/data/menu.ts` con el generado
+- `npm run sync:menu:curated` – Sustituye `menuES` desde `public/carta_keku_estructurada_curada.json` (recomendado)
+
+## Desarrollo
+
+1. Instala dependencias:
+
+```powershell
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+2. Arranca el dev server:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```powershell
+npm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+3. Construye para producción:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```powershell
+npm run build
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Despliegue
 
-## 🧞 Commands
+El sitio es estático. Publica la carpeta `dist/` en tu hosting/CDN preferido (GitHub Pages, Netlify, Vercel, etc.).
 
-All commands are run from the root of the project, from a terminal:
+## Notas
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- El layout de la carta usa Masonry por columnas (CSS) para mayor estabilidad.
+- Si prefieres el Masonry JS (por filas manteniendo orden estrictamente horizontal), reactívalo y usa `src/scripts/masonry.js`.
+- El origen de verdad para la carta en ES es el JSON curado en `public/`.

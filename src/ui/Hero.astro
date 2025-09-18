@@ -1,0 +1,60 @@
+---
+interface CTA {
+  label: string;
+  href: string;
+}
+type Props = {
+  title: string;
+  subtitle?: string;
+  ctaPrimary?: CTA;
+  ctaSecondary?: CTA;
+};
+const { title, subtitle, ctaPrimary, ctaSecondary } = Astro.props as Props;
+---
+
+<section class="relative overflow-hidden">
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-accent/10 via-transparent to-transparent pointer-events-none"
+  >
+  </div>
+  <div
+    class="container mx-auto px-6 pt-16 pb-10 md:pt-24 md:pb-16 grid md:grid-cols-2 gap-10 items-center"
+  >
+    <div>
+      <h1 class="font-display text-4xl md:text-6xl leading-tight">
+        {title}
+      </h1>
+      {
+        subtitle && (
+          <p class="mt-4 text-lg text-muted max-w-prose">{subtitle}</p>
+        )
+      }
+      <div class="mt-8 flex items-center gap-4">
+        {
+          ctaPrimary && (
+            <a class="btn btn-primary" href={ctaPrimary.href}>
+              {ctaPrimary.label}
+            </a>
+          )
+        }
+        {
+          ctaSecondary && (
+            <a class="btn btn-secondary" href={ctaSecondary.href}>
+              {ctaSecondary.label}
+            </a>
+          )
+        }
+      </div>
+    </div>
+    <div class="relative">
+      <div
+        class="aspect-[4/3] rounded-3xl bg-[radial-gradient(ellipse_at_top_left,theme(colors.accent/30),transparent_60%),radial-gradient(ellipse_at_bottom_right,theme(colors.accent/15),transparent_50%)] ring-1 ring-border shadow-xl"
+      >
+        <img
+          class="max-w-full object-cover"
+          src="../../public/pasion_calidad_esfuerzo.png"
+        />
+      </div>
+    </div>
+  </div>
+</section>

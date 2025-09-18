@@ -1,0 +1,49 @@
+---
+import Base from "../../layouts/Base.astro";
+import Hero from "../../ui/Hero.astro";
+import { en } from "../../i18n/dict";
+---
+
+<Base
+  lang="en"
+  title="Keku Beer House | Modern Mediterranean"
+  description="Tapas, burgers and rice dishes. Book, check the menu and learn about us."
+  url="/en"
+>
+  <Hero
+    title={en.home.hero.title}
+    subtitle={en.home.hero.subtitle}
+    ctaPrimary={{ label: en.cta.book, href: "/en/contact#reservas" }}
+    ctaSecondary={{ label: en.cta.viewMenu, href: "/en/menu" }}
+  />
+
+  <section class="container mx-auto px-6 py-8">
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="bg-surface ring-1 ring-border rounded-xl p-4">
+        <p class="font-medium">
+          BEER & BURGERS 🍻 We also serve tapas and gourmet sandwiches.
+        </p>
+      </div>
+      <div class="bg-surface ring-1 ring-border rounded-xl p-4">
+        <p class="font-medium">What matters is the good vibe! 😎</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-6 py-8">
+    <div class="flex gap-3">
+      <a
+        class="btn btn-secondary"
+        href="https://linktr.ee/kekucerveceria"
+        target="_blank"
+        rel="noreferrer">Linktree</a
+      >
+      <a
+        class="btn btn-secondary"
+        href="https://maps.google.com/?q=Calle%20Tom%C3%A1s%20Valiente%2C%203%2C%20Alc%C3%A1cer"
+        target="_blank"
+        rel="noreferrer">Get directions</a
+      >
+    </div>
+  </section>
+</Base>

@@ -1,16 +1,174 @@
 ---
-
+import Base from "../layouts/Base.astro";
+import Hero from "../ui/Hero.astro";
+import { es } from "../i18n/dict";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base
+  lang="es"
+  title="Keku Cervecería | Cocina moderna y buen ambiente"
+  description="Keku Cervecería: cocina mediterránea moderna, buenos arroces, burgers y tapas. Reserva, consulta la carta y conócenos."
+  url="/"
+>
+  <Hero
+    title={es.home.hero.title}
+    subtitle={es.home.hero.subtitle}
+    ctaPrimary={{ label: es.cta.book, href: "/contacto#reservas" }}
+    ctaSecondary={{ label: es.cta.viewMenu, href: "/carta" }}
+  />
+
+  <section class="container mx-auto px-6 pt-2">
+    <ul class="flex flex-wrap gap-2 text-xs text-muted">
+      <div class="grid gap-4 md:grid-cols-4">
+        <figure
+          class="rounded-xl ring-1 ring-border overflow-hidden aspect-square"
+        >
+          <img
+            src="/el-local.png"
+            alt="El local"
+            class="img-cover"
+            loading="lazy"
+          />
+        </figure>
+        <figure
+          class="rounded-xl ring-1 ring-border overflow-hidden aspect-square"
+        >
+          <img
+            src="/cerveza.png"
+            alt="Cerveza"
+            class="img-cover"
+            loading="lazy"
+          />
+        </figure>
+        <figure
+          class="rounded-xl ring-1 ring-border overflow-hidden aspect-square"
+        >
+          <img
+            src="/hamburguesa.png"
+            alt="Hamburguesa"
+            class="img-cover"
+            loading="lazy"
+          />
+        </figure>
+        <figure
+          class="rounded-xl ring-1 ring-border overflow-hidden aspect-square"
+        >
+          <img
+            src="/hamburguesa-2.png"
+            alt="Hamburguesa 2"
+            class="img-cover"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+    </ul>
+  </section>
+
+  <section class="container mx-auto px-6 py-8">
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="bg-surface ring-1 ring-border rounded-xl p-4">
+        <p class="font-medium">¡Lo ke-kuenta es el buen rollo! 😎</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-6 py-16 grid gap-10 md:grid-cols-3">
+    <div class="p-6 bg-surface rounded-2xl shadow-sm ring-1 ring-border">
+      <h3 class="text-xl font-display mb-2">
+        {es.home.highlights.quality.title}
+      </h3>
+      <p class="text-muted">{es.home.highlights.quality.text}</p>
+    </div>
+    <div class="p-6 bg-surface rounded-2xl shadow-sm ring-1 ring-border">
+      <h3 class="text-xl font-display mb-2">
+        {es.home.highlights.ambience.title}
+      </h3>
+      <p class="text-muted">{es.home.highlights.ambience.text}</p>
+    </div>
+    <div class="p-6 bg-surface rounded-2xl shadow-sm ring-1 ring-border">
+      <h3 class="text-xl font-display mb-2">
+        {es.home.highlights.events.title}
+      </h3>
+      <p class="text-muted">{es.home.highlights.events.text}</p>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-6 py-16">
+    <div class="flex flex-col md:flex-row gap-10 items-center">
+      <div class="md:w-1/2 space-y-4">
+        <h2 class="text-3xl md:text-4xl font-display">{es.home.about.title}</h2>
+        <p class="text-muted">{es.home.about.text}</p>
+        <a class="btn btn-primary inline-block" href="/sobre-nosotros"
+          >{es.cta.about}</a
+        >
+      </div>
+      <div class="md:w-1/2">
+        <div
+          class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 ring-1 ring-border flex items-center justify-center text-accent/60"
+        >
+          <img class="max-w-full" src="../../public/keku.png" />
+        </div>
+        <div class="mt-4 flex gap-3">
+          <a
+            class="btn btn-secondary"
+            href="https://linktr.ee/kekucerveceria"
+            target="_blank"
+            rel="noreferrer">Linktree</a
+          >
+          <a
+            class="btn btn-secondary"
+            href="https://maps.google.com/?q=Calle%20Tom%C3%A1s%20Valiente%2C%203%2C%20Alc%C3%A1cer"
+            target="_blank"
+            rel="noreferrer">Cómo llegar</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl md:text-4xl font-display mb-6">Ambiente Keku</h2>
+    <div class="grid gap-4 md:grid-cols-4">
+      <figure
+        class="rounded-xl ring-1 ring-border overflow-hidden aspect-square"
+      >
+        <img
+          src="/el-local.png"
+          alt="El local"
+          class="img-cover"
+          loading="lazy"
+        />
+      </figure>
+      <figure
+        class="rounded-xl ring-1 ring-border overflow-hidden aspect-square"
+      >
+        <img
+          src="/cerveza.png"
+          alt="Cerveza"
+          class="img-cover"
+          loading="lazy"
+        />
+      </figure>
+      <figure
+        class="rounded-xl ring-1 ring-border overflow-hidden aspect-square"
+      >
+        <img
+          src="/hamburguesa.png"
+          alt="Hamburguesa"
+          class="img-cover"
+          loading="lazy"
+        />
+      </figure>
+      <figure
+        class="rounded-xl ring-1 ring-border overflow-hidden aspect-square"
+      >
+        <img
+          src="/bocadillo-1.png"
+          alt="Bocadillo gourmet"
+          class="img-cover"
+          loading="lazy"
+        />
+      </figure>
+    </div>
+  </section>
+</Base>

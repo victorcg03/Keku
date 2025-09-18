@@ -1,0 +1,179 @@
+---
+const {
+  title = "Keku Cervecería",
+  description = "Cocina mediterránea moderna",
+  lang = "es",
+  url = "/",
+} = Astro.props;
+const isEN = lang === "en";
+const prefix = isEN ? "/en" : "";
+const aboutSlug = isEN ? "/about" : "/sobre-nosotros";
+const menuSlug = isEN ? "/menu" : "/carta";
+const contactSlug = isEN ? "/contact" : "/contacto";
+const switchHref = isEN ? "/" : "/en";
+---
+
+<html lang={lang} class="h-full">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="h-full bg-background text-foreground antialiased">
+    <header
+      class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b border-border"
+    >
+      <div
+        class="container mx-auto px-6 h-16 flex items-center justify-between"
+      >
+        <a href="/" class="flex items-center gap-2">
+          <img
+            src="/logo.png"
+            alt="Keku"
+            width="32"
+            height="32"
+            class="h-8 w-8"
+          />
+          <span class="font-display text-xl hidden sm:inline">Keku</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6">
+          <a class="nav-link" href={`${prefix}${aboutSlug}`}
+            >{isEN ? "About" : "Sobre Nosotros"}</a
+          >
+          <a class="nav-link" href={`${prefix}${menuSlug}`}
+            >{isEN ? "Menu" : "Carta"}</a
+          >
+          <a class="nav-link" href={`${prefix}${contactSlug}`}
+            >{isEN ? "Contact" : "Contacto"}</a
+          >
+          <a class="btn btn-primary" href={`${prefix}${contactSlug}#reservas`}
+            >{isEN ? "Book" : "Reservar"}</a
+          >
+          <a class="nav-link" href={switchHref}>{isEN ? "ES" : "EN"}</a>
+        </nav>
+        <details class="md:hidden">
+          <summary class="cursor-pointer">☰</summary>
+          <div
+            class="absolute right-4 mt-2 p-4 bg-surface rounded-xl shadow-lg ring-1 ring-border flex flex-col gap-3"
+          >
+            <a class="nav-link" href={`${prefix}${aboutSlug}`}
+              >{isEN ? "About" : "Sobre Nosotros"}</a
+            >
+            <a class="nav-link" href={`${prefix}${menuSlug}`}
+              >{isEN ? "Menu" : "Carta"}</a
+            >
+            <a class="nav-link" href={`${prefix}${contactSlug}`}
+              >{isEN ? "Contact" : "Contacto"}</a
+            >
+            <a class="btn btn-primary" href={`${prefix}${contactSlug}#reservas`}
+              >{isEN ? "Book" : "Reservar"}</a
+            >
+            <a class="nav-link" href={switchHref}>{isEN ? "ES" : "EN"}</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="mt-20 border-t border-border">
+      <div class="container mx-auto px-6 py-12 grid gap-10 md:grid-cols-3">
+        <div>
+          <h4 class="font-display text-lg mb-2">Keku Cervecería</h4>
+          <p class="text-muted">
+            {
+              isEN
+                ? "Modern Mediterranean cuisine. Burgers, rice dishes and tapas."
+                : "Cocina mediterránea moderna. Burgers, arroces y tapas."
+            }
+          </p>
+          <div class="mt-3 text-sm text-muted">
+            <span class="block font-medium text-foreground/90"
+              >{isEN ? "Address" : "Dirección"}</span
+            >
+            <span>Calle Tomás Valiente, 3, Alcácer</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-display text-lg mb-2">
+            {isEN ? "Opening hours" : "Horario"}
+          </h4>
+          <p class="text-muted">
+            {isEN ? "Daily: 12:30 – 00:30" : "L-D: 12:30 a 00:30"}
+          </p>
+        </div>
+        <div>
+          <h4 class="font-display text-lg mb-2">
+            {isEN ? "Contact" : "Contacto"}
+          </h4>
+          <p class="text-muted">{isEN ? "Phone: —" : "Tel: —"}</p>
+          <a
+            class="text-accent hover:underline"
+            href="https://www.instagram.com/kekucerveceria"
+            target="_blank"
+            rel="noreferrer">Instagram</a
+          >
+          <span class="mx-2 text-muted">·</span>
+          <a
+            class="text-accent hover:underline"
+            href="https://linktr.ee/kekucerveceria"
+            target="_blank"
+            rel="noreferrer">Linktree</a
+          >
+
+          <div class="mt-3 text-sm">
+            <span class="block font-medium text-foreground/90"
+              >{isEN ? "Downloads" : "Descargas"}</span
+            >
+            <ul>
+              <li>
+                <a
+                  class="hover:underline"
+                  href="/CARTA%20Y%20ALERGENOS%20VERANO%202025.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {
+                    isEN
+                      ? "Full Menu & Allergens (PDF)"
+                      : "Carta y Alérgenos (PDF)"
+                  }
+                </a>
+              </li>
+              <li>
+                <a
+                  class="hover:underline"
+                  href="/menus%20especiales.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {
+                    isEN
+                      ? "Group/Special Menus (PDF)"
+                      : "Menús Especiales (PDF)"
+                  }
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-xs text-muted pb-8">
+        © {new Date().getFullYear()} Keku
+      </div>
+    </footer>
+  </body>
+  <style is:global>
+    @import "../styles/tailwind.css";
+  </style>
+</html>

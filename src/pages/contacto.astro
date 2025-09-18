@@ -1,0 +1,167 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  lang="es"
+  title="Contacto | Keku Cervecería"
+  description="Reserva y contacto de Keku."
+>
+  <section class="container mx-auto px-6 py-16 max-w-5xl">
+    <h1 class="font-display text-4xl mb-8">Contacto</h1>
+    <div class="grid gap-10 md:grid-cols-2">
+      <div id="reservas" class="bg-surface rounded-2xl ring-1 ring-border p-6">
+        <h2 class="font-display text-2xl mb-4">Reservas</h2>
+        <p class="text-muted mb-4">Llámanos o escríbenos para reservar mesa.</p>
+        <ul class="space-y-2 text-sm">
+          <li>Tel: —</li>
+          <li>Email: —</li>
+          <li>Dirección: Calle Tomás Valiente, 3, Alcácer</li>
+          <li>
+            Linktree: <a
+              class="hover:underline text-accent"
+              href="https://linktr.ee/kekucerveceria"
+              target="_blank"
+              rel="noreferrer">linktr.ee/kekucerveceria</a
+            >
+          </li>
+        </ul>
+      </div>
+      <form
+        class="bg-surface rounded-2xl ring-1 ring-border p-6 space-y-4"
+        onsubmit="event.preventDefault(); const s=this.querySelector('[data-status]'); const btn=this.querySelector('button'); s.textContent='Enviando...'; btn.disabled=true; setTimeout(()=>{ s.textContent='¡Gracias! Responderemos pronto.'; btn.disabled=false; }, 1200);"
+      >
+        <h2 class="font-display text-2xl mb-2">Escríbenos</h2>
+        <input
+          class="w-full bg-background border border-border rounded-lg p-3"
+          placeholder="Nombre"
+          required
+        />
+        <input
+          type="email"
+          class="w-full bg-background border border-border rounded-lg p-3"
+          placeholder="Email"
+          required
+        />
+        <textarea
+          class="w-full bg-background border border-border rounded-lg p-3 h-32"
+          placeholder="Mensaje"></textarea>
+        <div class="flex items-center gap-3">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            aria-label="Enviar formulario">Enviar</button
+          >
+          <span data-status class="text-sm text-muted" aria-live="polite"
+          ></span>
+        </div>
+      </form>
+    </div>
+
+    <div class="mt-12 grid gap-10 md:grid-cols-2 md:items-stretch">
+      <div
+        class="bg-surface rounded-2xl ring-1 ring-border overflow-hidden h-full flex flex-col"
+      >
+        <div class="p-6">
+          <h2 class="font-display text-2xl mb-2">Mapa</h2>
+          <p class="text-muted text-sm">Calle Tomás Valiente, 3, Alcácer</p>
+        </div>
+        <div class="relative flex-1">
+          <iframe
+            title="Mapa Keku"
+            src="https://www.google.com/maps?q=Calle%20Tom%C3%A1s%20Valiente%2C%203%2C%20Alc%C3%A1cer&output=embed"
+            class="w-full h-full min-h-[320px]"
+            style="filter: invert(0.9) hue-rotate(180deg) contrast(1.05);"
+          ></iframe>
+        </div>
+      </div>
+      <div class="bg-surface rounded-2xl ring-1 ring-border overflow-hidden">
+        <div class="p-6">
+          <h2 class="font-display text-2xl mb-2">Instagram</h2>
+          <p class="text-muted text-sm">
+            <a
+              class="hover:underline"
+              href="https://www.instagram.com/kekucerveceria"
+              target="_blank"
+              rel="noreferrer">@kekucerveceria</a
+            >
+          </p>
+        </div>
+        <div class="p-4 grid grid-cols-3 gap-2">
+          <a
+            href="https://www.instagram.com/kekucerveceria"
+            target="_blank"
+            rel="noreferrer"
+            class="block group rounded-lg ring-1 ring-border overflow-hidden aspect-square"
+            ><img
+              src="/hamburguesa.png"
+              alt="Hamburguesa"
+              class="img-cover opacity-95 group-hover:opacity-100 transition"
+              loading="lazy"
+            /></a
+          >
+          <a
+            href="https://www.instagram.com/kekucerveceria"
+            target="_blank"
+            rel="noreferrer"
+            class="block group rounded-lg ring-1 ring-border overflow-hidden aspect-square"
+            ><img
+              src="/hamburguesa-2.png"
+              alt="Hamburguesa 2"
+              class="img-cover opacity-95 group-hover:opacity-100 transition"
+              loading="lazy"
+            /></a
+          >
+          <a
+            href="https://www.instagram.com/kekucerveceria"
+            target="_blank"
+            rel="noreferrer"
+            class="block group rounded-lg ring-1 ring-border overflow-hidden aspect-square"
+            ><img
+              src="/bocadillo-1.png"
+              alt="Bocadillo gourmet"
+              class="img-cover opacity-95 group-hover:opacity-100 transition"
+              loading="lazy"
+            /></a
+          >
+          <a
+            href="https://www.instagram.com/kekucerveceria"
+            target="_blank"
+            rel="noreferrer"
+            class="block group rounded-lg ring-1 ring-border overflow-hidden aspect-square"
+            ><img
+              src="/el-local.png"
+              alt="El local"
+              class="img-cover opacity-95 group-hover:opacity-100 transition"
+              loading="lazy"
+            /></a
+          >
+          <a
+            href="https://www.instagram.com/kekucerveceria"
+            target="_blank"
+            rel="noreferrer"
+            class="block group rounded-lg ring-1 ring-border overflow-hidden aspect-square"
+            ><img
+              src="/cerveza.png"
+              alt="Cerveza"
+              class="img-cover opacity-95 group-hover:opacity-100 transition"
+              loading="lazy"
+            /></a
+          >
+          <a
+            href="https://www.instagram.com/kekucerveceria"
+            target="_blank"
+            rel="noreferrer"
+            class="block group rounded-lg ring-1 ring-border overflow-hidden aspect-square"
+            ><img
+              src="/ensalada_pesci.png"
+              alt="Ensalada"
+              class="img-cover opacity-95 group-hover:opacity-100 transition"
+              loading="lazy"
+            /></a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

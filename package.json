@@ -6,9 +6,20 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "extract:menu": "node ./scripts/extract-menu-from-pdf.mjs",
+    "sync:menu": "node ./scripts/sync-menu-json.mjs",
+    "sync:menu:curated": "node ./scripts/sync-menu-from-curated.mjs"
   },
   "dependencies": {
-    "astro": "^5.13.8"
+    "pdf-parse": "^1.1.1",
+    "@astrojs/react": "^4.3.1",
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "astro": "^5.13.8",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.13"
   }
 }

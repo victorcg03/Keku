@@ -1,0 +1,100 @@
+---
+import Base from "../../layouts/Base.astro";
+import { menuEN } from "../../data/menu";
+---
+
+<Base
+  lang="en"
+  title="Menu | Keku Beer House"
+  description="Our tapas, burgers and rice dishes menu."
+>
+  <section class="container mx-auto px-6 py-16 max-w-5xl">
+    <h1 class="font-display text-4xl mb-8">Menu</h1>
+    <div class="mb-8 flex flex-wrap gap-3">
+      <a
+        class="btn btn-secondary"
+        href="/CARTA%20Y%20ALERGENOS%20VERANO%202025.pdf"
+        target="_blank"
+        rel="noreferrer">Download Full Menu & Allergens (PDF)</a
+      >
+      <a
+        class="btn btn-secondary"
+        href="/menus%20especiales.pdf"
+        target="_blank"
+        rel="noreferrer">Download Group/Special Menus (PDF)</a
+      >
+    </div>
+    <div
+      class="columns-1 md:columns-2 lg:columns-3"
+      style="column-gap: 1.5rem;"
+    >
+      {
+        menuEN.map((section) => (
+          <div class="bg-surface rounded-2xl ring-1 ring-border p-6 break-inside-avoid mb-6">
+            <h2 class="font-display text-2xl mb-4">{section.title}</h2>
+            <ul class="space-y-4">
+              {section.items.map((item) => (
+                <li class="flex items-start justify-between gap-6">
+                  <div>
+                    <div class="font-medium">{item.name}</div>
+                    {item.description && (
+                      <p class="text-muted text-sm">{item.description}</p>
+                    )}
+                  </div>
+                  <div class="text-accent whitespace-nowrap">{item.price}€</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 space-y-6">
+      <details class="bg-surface ring-1 ring-border rounded-xl p-4">
+        <summary class="cursor-pointer font-display text-lg"
+          >View full menu & allergens (PDF)</summary
+        >
+        <div class="mt-4">
+          <object
+            data="/CARTA%20Y%20ALERGENOS%20VERANO%202025.pdf"
+            type="application/pdf"
+            width="100%"
+            height="800"
+          >
+            <p class="text-muted">
+              Your browser can't display PDFs. You can <a
+                class="text-accent hover:underline"
+                href="/CARTA%20Y%20ALERGENOS%20VERANO%202025.pdf"
+                target="_blank"
+                rel="noreferrer">download it here</a
+              >.
+            </p>
+          </object>
+        </div>
+      </details>
+      <details class="bg-surface ring-1 ring-border rounded-xl p-4">
+        <summary class="cursor-pointer font-display text-lg"
+          >View group/special menus (PDF)</summary
+        >
+        <div class="mt-4">
+          <object
+            data="/menus%20especiales.pdf"
+            type="application/pdf"
+            width="100%"
+            height="800"
+          >
+            <p class="text-muted">
+              Your browser can't display PDFs. You can <a
+                class="text-accent hover:underline"
+                href="/menus%20especiales.pdf"
+                target="_blank"
+                rel="noreferrer">download it here</a
+              >.
+            </p>
+          </object>
+        </div>
+      </details>
+    </div>
+  </section>
+</Base>
